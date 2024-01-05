@@ -3,10 +3,10 @@ import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
-export async function getServerSideProps(context:NextPageContext) {
+export async function getServerSideProps(context: NextPageContext) {
     const session = await getSession(context);
 
-    if(!session) {
+    if (!session) {
         return {
             redirect: {
                 destination: '/auth',
@@ -19,9 +19,9 @@ export async function getServerSideProps(context:NextPageContext) {
     }
 }
 
-const Profiles = ()=> {
+const Profiles = () => {
     const router = useRouter();
-    const { data: user} = userCurrentUser();
+    const { data: user } = userCurrentUser();
     return (
         <div className="flex items-center h-full justify-center">
             <div className="flex flex-col">
